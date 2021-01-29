@@ -1,3 +1,24 @@
+.navbar {
+  font-weight: bolder;
+  font-size: xx-large;
+}
 .grid {
-  margin: 100px 0 0;
+  margin: 20px 0 0;
+}
+
+.button-grid {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.legend-grid {
+  margin-top: 19px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.legend-desc {
+  font-size: large;
+  font-weight: bolder;
 }

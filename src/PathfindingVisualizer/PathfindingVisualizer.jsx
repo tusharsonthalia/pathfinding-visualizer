@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from '../algorithms/dijkstra';
+import {Navbar, Legend} from './utils';
 
 import './PathfindingVisualizer.css';
 
-const START_NODE_ROW = 10;
+const START_NODE_ROW = 5;
 const START_NODE_COL = 15;
-const FINISH_NODE_ROW = 10;
+const FINISH_NODE_ROW = 5;
 const FINISH_NODE_COL = 35;
 
 export default class PathfindingVisualizer extends Component {
@@ -77,10 +78,16 @@ export default class PathfindingVisualizer extends Component {
     const {grid, mouseIsPressed} = this.state;
 
     return (
-      <>
-        <button onClick={() => this.visualizeDijkstra()}>
-          Visualize Dijkstra's Algorithm
-        </button>
+      <Fragment>
+        <Navbar />
+        <Legend />
+        <div className="button-grid">
+          <button
+            className="btn btn-lg btn-outline-success"
+            onClick={() => this.visualizeDijkstra()}>
+            Visualize Dijkstra's Algorithm
+          </button>
+        </div>
         <div className="grid">
           {grid.map((row, rowIdx) => {
             return (
@@ -107,14 +114,14 @@ export default class PathfindingVisualizer extends Component {
             );
           })}
         </div>
-      </>
+      </Fragment>
     );
   }
 }
 
 const getInitialGrid = () => {
   const grid = [];
-  for (let row = 0; row < 20; row++) {
+  for (let row = 0; row < 11; row++) {
     const currentRow = [];
     for (let col = 0; col < 50; col++) {
       currentRow.push(createNode(col, row));
