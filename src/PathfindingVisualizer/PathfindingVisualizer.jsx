@@ -16,7 +16,7 @@ export default class PathfindingVisualizer extends Component {
     this.state = {
       grid: [],
       mouseIsPressed: false,
-      showInstructions: true,
+      showInstructions: false,
     };
   }
 
