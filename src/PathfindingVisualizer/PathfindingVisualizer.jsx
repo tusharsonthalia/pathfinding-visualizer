@@ -50,8 +50,10 @@ export default class PathfindingVisualizer extends Component {
       }
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          "node node-visited";
+        if (!node.isStart && !node.isFinish) {
+          document.getElementById(`node-${node.row}-${node.col}`).className =
+            "node node-visited";
+        }
       }, 10 * i);
     }
   }
@@ -59,7 +61,7 @@ export default class PathfindingVisualizer extends Component {
   animateShortestPath(nodesInShortestPathOrder) {
     let path = false;
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
-      const node = nodesInShortestPathOrder[i]
+      const node = nodesInShortestPathOrder[i];
       setTimeout(() => {
         document.getElementById(`node-${node.row}-${node.col}`).className =
           "node node-shortest-path";
@@ -81,8 +83,10 @@ export default class PathfindingVisualizer extends Component {
       }
     }
     if (!path) {
-      alert("No path has been found between the two points. Try removing some walls.")
-      this.clearBoard()
+      alert(
+        "No path has been found between the two points. Try removing some walls."
+      );
+      this.clearBoard();
     }
   }
 
