@@ -57,12 +57,32 @@ export default class PathfindingVisualizer extends Component {
   }
 
   animateShortestPath(nodesInShortestPathOrder) {
+    let path = false;
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
+      const node = nodesInShortestPathOrder[i]
       setTimeout(() => {
-        const node = nodesInShortestPathOrder[i];
         document.getElementById(`node-${node.row}-${node.col}`).className =
           "node node-shortest-path";
       }, 50 * i);
+      if (node.row === FINISH_NODE_ROW - 1 && node.col === FINISH_NODE_COL) {
+        path = true;
+      } else if (node.row === FINISH_NODE_ROW) {
+        if (
+          node.col === FINISH_NODE_COL - 1 ||
+          node.col === FINISH_NODE_COL + 1
+        ) {
+          path = true;
+        }
+      } else if (
+        node.row === FINISH_NODE_ROW + 1 &&
+        node.col === FINISH_NODE_COL
+      ) {
+        path = true;
+      }
+    }
+    if (!path) {
+      alert("No path has been found between the two points. Try removing some walls.")
+      this.clearBoard()
     }
   }
 
