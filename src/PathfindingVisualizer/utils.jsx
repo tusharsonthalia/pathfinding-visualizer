@@ -18,26 +18,26 @@ export class Legend extends Component {
     return (
       <Fragment>
         <div className="legend-grid">
-          <div>
+          <div className="legend-item">
             <div className="node node-start"></div>
             <div className="legend-desc">Start Node</div>
           </div>
-          <div>
+          <div className="legend-item">
             <div className="node node-finish"></div>
             <div className="legend-desc">End Node</div>
           </div>
-          <div>
+          <div className="legend-item">
             <div
               className="node"
               style={{ backgroundColor: "rgba(0, 190, 218, 0.75)" }}
             ></div>
             <div className="legend-desc">Visited Node</div>
           </div>
-          <div>
+          <div className="legend-item">
             <div className="node node-wall"></div>
             <div className="legend-desc">Wall Node</div>
           </div>
-          <div>
+          <div className="legend-item">
             <div
               className="node"
               style={{ backgroundColor: "rgb(255, 254, 106)" }}

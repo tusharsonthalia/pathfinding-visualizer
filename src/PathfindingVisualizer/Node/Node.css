@@ -3,6 +3,12 @@
   height: 25px;
   outline: 1px solid rgb(175, 216, 248);
   display: inline-block;
+  cursor: pointer;
+}
+
+.node:hover {
+  transform: scale(1.1);
+  box-shadow: black 0 0 3px .2px;
 }
 
 .node-finish {
